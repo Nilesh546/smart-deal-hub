@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Deal Hub</title>
+<meta name="description" content="Smart Deal Hub पर शानदार प्रोडक्ट और शॉपिंग डील्स खोजें।">
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f4f6fa;color:#172033}
+header{background:#102a56;color:white;padding:20px 14px}
+h1{margin:0;font-size:27px}
+header p{margin:8px 0 14px}
+.search{width:100%;padding:13px;border:0;border-radius:8px;font-size:16px}
+nav{display:flex;gap:9px;overflow:auto;padding:12px;background:white}
+nav a{white-space:nowrap;text-decoration:none;background:#e9efff;color:#15366c;padding:10px;border-radius:20px}
+main{padding:15px;max-width:1000px;margin:auto}
+h2{font-size:21px}
+.notice{background:#fff4d6;padding:12px;border-radius:8px;font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.card{background:white;border-radius:12px;padding:12px;box-shadow:0 2px 8px #0000000d}
+.pic{height:110px;background:#edf1f8;border-radius:8px;display:grid;place-items:center;font-size:45px}
+.card h3{font-size:16px;margin:12px 0 7px}
+.price{font-weight:bold;color:#087443}
+.btn{display:block;text-align:center;text-decoration:none;background:#ffb900;color:#202020;padding:10px 5px;border-radius:7px;font-weight:bold;margin-top:10px}
+.empty{display:none;padding:20px}
+footer{text-align:center;padding:25px;font-size:13px;color:#555}
+@media(min-width:650px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+</style>
+</head>
+<body>
+<header>
+<h1>🛍️ Smart Deal Hub</h1>
+<p>Smart shopping, better deals!</p>
+<input class="search" id="search" placeholder="प्रोडक्ट खोजें..." oninput="filterProducts()">
+</header>
+<nav>
+<a href="#all">सभी प्रोडक्ट</a>
+<a href="#all">मोबाइल</a>
+<a href="#all">फैशन</a>
+<a href="#all">इलेक्ट्रॉनिक्स</a>
+<a href="#all">घर और किचन</a>
+</nav>
+<main id="all">
+<h2>🔥 लोकप्रिय प्रोडक्ट</h2>
+<p class="notice">यह एक शुरुआती डेमो है। खरीदने के बटन में अपने वास्तविक एफिलिएट लिंक डालें।</p>
+<div class="grid" id="products">
+<article class="card" data-name="wireless headphones">
+<div class="pic">🎧</div>
+<h3>Wireless Headphones</h3>
+<p class="price">कीमत: अपडेट करें</p>
+<a class="btn" href="https://www.amazon.in/" target="_blank" rel="noopener">Amazon पर देखें</a>
+<a class="btn" href="https://www.flipkart.com/" target="_blank" rel="noopener">Flipkart पर देखें</a>
+</article>
+<article class="card" data-name="smart watch">
+<div class="pic">⌚</div>
+<h3>Smart Watch</h3>
+<p class="price">कीमत: अपडेट करें</p>
+<a class="btn" href="https://www.amazon.in/" target="_blank" rel="noopener">Amazon पर देखें</a>
+<a class="btn" href="https://www.flipkart.com/" target="_blank" rel="noopener">Flipkart पर देखें</a>
+</article>
+<article class="card" data-name="fashion shirt">
+<div class="pic">👕</div>
+<h3>Fashion Shirt</h3>
+<p class="price">कीमत: अपडेट करें</p>
+<a class="btn" href="https://www.myntra.com/" target="_blank" rel="noopener">Myntra पर देखें</a>
+<a class="btn" href="https://www.ajio.com/" target="_blank" rel="noopener">AJIO पर देखें</a>
+</article>
+<article class="card" data-name="home kitchen">
+<div class="pic">🏠</div>
+<h3>Home & Kitchen</h3>
+<p class="price">कीमत: अपडेट करें</p>
+<a class="btn" href="https://www.meesho.com/" target="_blank" rel="noopener">Meesho पर देखें</a>
+<a class="btn" href="https://www.amazon.in/" target="_blank" rel="noopener">Amazon पर देखें</a>
+</article>
+</div>
+<p class="empty" id="empty">कोई प्रोडक्ट नहीं मिला।</p>
+</main>
+<footer>
+<p>Smart Deal Hub</p>
+<p>हम एफिलिएट लिंक से योग्य खरीदारी पर कमीशन कमा सकते हैं।</p>
+<p>खरीदने से पहले संबंधित स्टोर पर कीमत और उपलब्धता जाँचें।</p>
+</footer>
+<script>
+function filterProducts(){
+const q=document.getElementById('search').value.toLowerCase();
+let count=0;
+document.querySelectorAll('.card').forEach(card=>{
+const show=card.innerText.toLowerCase().includes(q)||card.dataset.name.includes(q);
+card.style.display=show?'block':'none';
+if(show)count++;
+});
+document.getElementById('empty').style.display=count?'none':'block';
+}
+</script>
+</body>
+  </html>
+ 
